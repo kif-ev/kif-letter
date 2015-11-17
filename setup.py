@@ -6,13 +6,14 @@ except ImportError:
 config = {
     'name': 'kif-letter',
     'version': '0.1.1',
-    'description': 'Dieses Script parst alle Abgeordneten des Bundestages, erstellt den Rahmen für einen Serienbrief und fügt als Text eine Resolution und eventuelle weitere Texte aus TeX-Dateien ein.',
+    'description': 'Dieses Programm parst Adressatenlisten und formt eine Reso zu einem Serienbrief',
     'author': 'Sebastian Lau',
     'author_email': 'lauseb644@gmail.com',
+    'license': 'MIT',
     'url': '',
     'download_url': '',
-    'install_requires': [''],
-    'packages': ['kif-letter'],
+    #'install_requires': ['urllib'],
+    'packages': ['kif-letter', 'kif-letter-nameparser-plugins', 'distutils', 'urllib'],
     'scripts': []
 }
 
