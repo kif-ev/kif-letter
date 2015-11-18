@@ -1,0 +1,3 @@
+[submodule "/kif_letter/genderize"]
+	path = /kif_letter/genderize
+	url = https://github.com/SteelPangolin/genderize.git
