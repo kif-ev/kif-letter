@@ -1,3 +1,7 @@
+
+from unidecode import unidecode
+import codecs
+
 import config
 
 class TeXWriter:
@@ -6,15 +10,15 @@ class TeXWriter:
         self.address = address
         self.namelist = namelist
 
-        text = r"""{0}
+        text = unidecode(r"""{0}
 
 {1}
 {2}
 {3}
 {4}
-{5}""".format(self._preamble(), self._TeXconfig(), self._TeXstart(), self._TeXbody(), self._TeXend(), self._TeXdoc())
+{5}""".format(self._preamble(), self._TeXconfig(), self._TeXstart(), self._TeXbody(), self._TeXend(), self._TeXdoc()))
 
-        tex_file = open(out, encoding='utf-8', mode='w')
+        tex_file = codecs.open(out, encoding='latin1', mode='w')
         tex_file.write(text)
         tex_file.close()
 

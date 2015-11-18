@@ -1,14 +1,15 @@
 
 from genderize.genderize import Genderize
+from unidecode import unidecode
 
 import config
 
 
 class Name:
     def __init__(self, vorname, nachname, partei):
-        self.vorname = vorname
-        self.nachname = nachname
-        self.partei = partei
+        self.vorname = unidecode(vorname)
+        self.nachname = unidecode(nachname)
+        self.partei = unidecode(partei)
 
         if config.genderize_io:
             gender = Genderize().get(vorname)

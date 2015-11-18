@@ -12,7 +12,7 @@ config = {
     'license': 'MIT',
     'url': '',
     'download_url': '',
-    'install_requires': ['urllib', 'os', 'sys'],
+    'install_requires': ['urllib', 'os', 'sys' 'unidecode', 'distutils.core', 'setuptools', 'unidecode', 'codecs'],
     'packages': ['kif_letter'],
     'scripts': ['main.py']
 }
