@@ -1,6 +1,5 @@
 
 from genderize.genderize import Genderize
-import re
 
 class Name:
     def __init__(self, vorname, nachname, partei):

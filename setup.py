@@ -12,9 +12,9 @@ config = {
     'license': 'MIT',
     'url': '',
     'download_url': '',
-    #'install_requires': ['urllib'],
-    'packages': ['kif-letter', 'kif-letter-nameparser-plugins', 'distutils', 'urllib'],
-    'scripts': []
+    'install_requires': ['urllib', 'os', 'sys'],
+    'packages': ['kif_letter'],
+    'scripts': ['main.py']
 }
 
 setup(**config)

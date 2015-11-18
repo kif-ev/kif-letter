@@ -6,9 +6,16 @@ class NameParser:
     def __init__(self, address, url):
         self.address = address
         self.url = url
-        response = request.urlopen(self.url)
-        self.pageContent = str(response.read())
+        if url != '':
+            response = request.urlopen(self.url)
+            self.pageContent = str(response.read())
+        else:
+            self.pageContent = ''
         self.namelist = []
+
+    @classmethod
+    def create_nonfunctional(self):
+        return NameParser('', '')
 
     def get_address(self):
         return self.address
