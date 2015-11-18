@@ -23,6 +23,7 @@ def main():
                out = sys.argv[arg_indx+1]
             elif arg == '-p' or arg == '--parser':
                 parsername = sys.argv[arg_indx+1]
+
     else:
         print("Usage: kif_letter.py -o OUTFILE -p PARSERNAME")
         os.abort()

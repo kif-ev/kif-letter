@@ -14,7 +14,7 @@ config = {
     'download_url': '',
     'install_requires': ['urllib', 'os', 'sys' 'unidecode', 'distutils.core', 'setuptools', 'unidecode', 'codecs'],
     'packages': ['kif_letter'],
-    'scripts': ['main.py']
+    'scripts': ['kif_letter.py']
 }
 
 setup(**config)
