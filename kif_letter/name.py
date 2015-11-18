@@ -1,17 +1,23 @@
 
 from genderize.genderize import Genderize
 
+import config
+
+
 class Name:
     def __init__(self, vorname, nachname, partei):
         self.vorname = vorname
         self.nachname = nachname
         self.partei = partei
 
-        gender = Genderize().get(vorname)
-        if gender[0]['gender'] == 'male':
-            self.gender = 'm'
-        elif gender[0]['gender'] == 'female':
-            self.gender = 'f'
+        if config.genderize_io:
+            gender = Genderize().get(vorname)
+            if gender[0]['gender'] == 'male':
+                self.gender = 'm'
+            elif gender[0]['gender'] == 'female':
+                self.gender = 'f'
+            else:
+                self.gender = ''
         else:
             self.gender = ''
 

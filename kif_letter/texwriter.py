@@ -36,14 +36,14 @@ class TeXWriter:
 \setkomavar{{signature}}{{{5}}}
 \setkomavar{{location}}{{\hspace{{-1cm}}\includegraphics[scale=0.42]{{{6}}}}}
 
-\urldef{{\resourl}}\url{{{7}}}""".format(config.conference_name, config.fromaddress, config.backaddress, config.date, config.place, config.signature, config.logoname)
+\urldef{{\resourl}}\url{{{7}}}""".format(config.conference_name, config.fromaddress, config.backaddress, config.date, config.place, config.signature, config.logoname, config.resourl)
 
     def _TeXstart(self):
         return r"""\newcommand{{\letterfor}}[4]{{\begin{{letter}}{{{{\ifx#4mHerrn\else Frau\fi}}\relax\\#1#2 #3\\{0}}}
 
 \opening{{Sehr geehrte{{\ifx#4mr Herr\else\ Frau\fi}}\ #1#3,}}
 
-die {1}{2}""".format(self.parser.get_address(), config.conference_name, config.conference_info)
+die {1}{2}""".format(self.address, config.conference_name, config.conference_info)
 
     def _TeXbody(self):
         return r"""\include{reso}"""
@@ -59,7 +59,7 @@ die {1}{2}""".format(self.parser.get_address(), config.conference_name, config.c
 
     def _TeXdoc(self):
 
-        docpart = r"""\begin{{document}}
+        docpart = r"""\begin{document}
 
 """
         for name in self.namelist:

@@ -10,3 +10,5 @@ signature = "die Teilnehmer und Teilnehmerinnen der {0}".format(conference_name)
 logoname = "465px-Kif_logo_435"
 resourl = r"""https://kif.fsinf.de/wiki/KIF435:Resolutionen/Wissenschaftszeitvertragsgesetz""".encode()
 closing = "Hochachtungsvoll"
+
+genderize_io = False
