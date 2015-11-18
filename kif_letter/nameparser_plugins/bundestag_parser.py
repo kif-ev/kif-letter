@@ -40,6 +40,5 @@ class BundestagParser(NameParser):
                         partei = token
                 name = Name(vorname, nachname, partei)
                 self.namelist.append(name)
-                print('Added ')
-                name.printout()
+                print('Added %s' % name.printout())
 
