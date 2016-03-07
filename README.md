@@ -8,10 +8,11 @@ Dieses Script parst alle Abgeordneten des Bundestages, erstellt den Rahmen für 
  * Parsen aller Namen aller Abgeordneten des Bundestages (und feststellen des Geschlechts, bis api_limit von genderize.io erreicht ist)
  * Erstellen eines TeX-Datei-Rahmens für den Brief
  * Plugin-Schnittstelle für weitere `NameParser`
+ * Offline-Erkennung des Geschlechts, soweit Name bekannt
  
 #### Future features
 
- * Offline-Erkennung des Geschlechts und Wegfall von genderize.io
+ * Wegfall von genderize.io
  
 
 ### Usage
@@ -31,3 +32,11 @@ wobei
  * `codecs`
  * `setuptools`
  * `urllib`
+ 
+ 
+### License
+
+The MIT License (MIT)
+
+Copyright (c) 2015 Sebastian Lau
+Copyright (C) 2015-2016 KIF e.V.

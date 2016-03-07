@@ -1,17 +1,19 @@
 
+
 from genderize.genderize import Genderize
 from unidecode import unidecode
 
 import config
+from genderdetect import genderDetector
 
 
 class Name:
     def __init__(self, vorname, nachname, partei):
-        self.vorname = unidecode(vorname)
-        self.nachname = unidecode(nachname)
-        self.partei = unidecode(partei)
+        self.vorname = vorname
+        self.nachname = nachname
+        self.partei = partei
 
-        if config.genderize_io:
+        if config.genderdetector == 'GenderizeIO':
             gender = Genderize().get(vorname)
             if gender[0]['gender'] == 'male':
                 self.gender = 'm'
@@ -20,7 +22,13 @@ class Name:
             else:
                 self.gender = ''
         else:
-            self.gender = ''
+            gender = genderDetector.guess(self.vorname)
+            if gender == 'male':
+                self.gender = 'm'
+            elif gender == 'female':
+                self.gender = 'f'
+            else:
+                self.gender = ''
 
     def printout(self):
         name_str = self.nachname + ', ' + self.vorname + ' (' + self.gender + ', ' + self.partei + ')'

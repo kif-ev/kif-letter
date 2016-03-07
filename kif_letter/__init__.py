@@ -1,2 +1,2 @@
 
-__all__ = ['name', 'nameparser_plugins', 'texwriter', 'nameparser']
+__all__ = ['genderdetect', 'name', 'nameparser_plugins', 'texwriter', 'nameparser']
