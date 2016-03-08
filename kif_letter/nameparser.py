@@ -1,14 +1,14 @@
 
 from urllib import request
-
+import codecs
 
 class NameParser:
     def __init__(self, address, url):
         self.address = address
         self.url = url
         if url != '':
-            response = request.urlopen(self.url)
-            self.pageContent = str(response.read())
+            response = request.urlopen(self.url).read()
+            self.pageContent = response.decode()
         else:
             self.pageContent = ''
         self.namelist = []
