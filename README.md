@@ -12,7 +12,7 @@ Dieses Script parst alle Abgeordneten des Bundestages, erstellt den Rahmen für 
  
 #### Future features
 
- * Wegfall von genderize.io
+ * Bessere Name-DB
  
 
 ### Usage

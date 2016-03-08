@@ -1,6 +1,5 @@
 
 
-from genderize.genderize import Genderize
 from unidecode import unidecode
 
 import config
@@ -26,22 +25,15 @@ class Name:
         if van_sufix > -1:
             self.vorname_raw = self.vorname_raw[:van_sufix]
 
-        if config.genderdetector == 'GenderizeIO':
-            gender = Genderize().get(self.vorname_raw)
-            if gender[0]['gender'] == 'male':
-                self.gender = 'm'
-            elif gender[0]['gender'] == 'female':
-                self.gender = 'f'
-            else:
-                self.gender = ''
+        print("Guessing gender of %s" % self.vorname_raw)
+        gender = genderDetector.guess(self.vorname_raw)
+        if gender == 'male':
+            self.gender = 'm'
+        elif gender == 'female':
+            self.gender = 'f'
         else:
-            gender = genderDetector.guess(self.vorname_raw)
-            if gender == 'male':
-                self.gender = 'm'
-            elif gender == 'female':
-                self.gender = 'f'
-            else:
-                self.gender = ''
+            self.gender = ''
+        print("Gender detected: '%s'" % gender)
 
     def printout(self):
         name_str = self.nachname + ', ' + self.vorname + ' (' + self.gender + ', ' + self.partei + ')'
