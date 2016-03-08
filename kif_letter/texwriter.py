@@ -18,7 +18,7 @@ class TeXWriter:
 {4}
 {5}""".format(self._preamble(), self._TeXconfig(), self._TeXstart(), self._TeXbody(), self._TeXend(), self._TeXdoc()))
 
-        tex_file = codecs.open(out, encoding='latin1', mode='w')
+        tex_file = codecs.open(out, encoding='utf8', mode='w')
         tex_file.write(text)
         tex_file.close()
 
