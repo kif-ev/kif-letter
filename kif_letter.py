@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
 import sys
 import os
@@ -8,6 +10,7 @@ from kif_letter.texwriter import TeXWriter
 
 
 def main():
+    os.environ["PYTHONIOENCODING"] = 'utf-8'
     argc = len(sys.argv)
     out = ''
     parsername = ''
