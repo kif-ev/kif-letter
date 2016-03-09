@@ -1,5 +1,5 @@
 # kif-letter
-###### v0.1.0
+###### v0.2.0
 
 Dieses Script parst alle Abgeordneten des Bundestages, erstellt den Rahmen für einen Serienbrief und fügt als Text eine Resolution und eventuelle weitere Texte aus TeX-Dateien ein.
 
@@ -28,7 +28,6 @@ wobei
 ### Dependencies
 
  * `python3`
- * `codecs`
  * `setuptools`
  * `urllib`
  

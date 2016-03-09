@@ -5,14 +5,14 @@ except ImportError:
 
 config = {
     'name': 'kif-letter',
-    'version': '0.1.1',
+    'version': '0.2.0',
     'description': 'Dieses Programm parst Adressatenlisten und formt eine Reso zu einem Serienbrief',
     'author': 'Sebastian Lau',
     'author_email': 'lauseb644@gmail.com',
     'license': 'MIT',
-    'url': '',
-    'download_url': '',
-    'install_requires': ['urllib', 'os', 'sys' 'unidecode', 'distutils.core', 'setuptools', 'unidecode', 'codecs'],
+    'url': 'https://github.com/kif-ev/kif-letter/',
+    'download_url': 'https://github.com/kif-ev/kif-letter.git',
+    'install_requires': ['urllib', 'os', 'sys', 'distutils.core', 'setuptools', 'codecs'],
     'packages': ['kif_letter'],
     'scripts': ['kif_letter.py']
 }

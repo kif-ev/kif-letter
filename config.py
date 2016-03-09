@@ -15,5 +15,3 @@ logoname = "Kif_logo_435.png"
 resourl = """https://kif.fsinf.de/wiki/KIF435:Resolutionen/Wissenschaftszeitvertragsgesetz"""
 closing = "Hochachtungsvoll"
 
-# Possible values 'Default', 'GenderizeIO'
-genderdetector = 'Default'
