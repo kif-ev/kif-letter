@@ -28,7 +28,6 @@ wobei
 ### Dependencies
 
  * `python3`
- * `unidecode`
  * `codecs`
  * `setuptools`
  * `urllib`

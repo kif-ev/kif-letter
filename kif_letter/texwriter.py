@@ -1,7 +1,5 @@
 
-from unidecode import unidecode
 import codecs
-
 import config
 
 class TeXWriter:
@@ -10,15 +8,15 @@ class TeXWriter:
         self.address = address
         self.namelist = namelist
 
-        text = unidecode(r"""{0}
+        text = r"""{0}
 
 {1}
 {2}
 {3}
 {4}
-{5}""".format(self._preamble(), self._TeXconfig(), self._TeXstart(), self._TeXbody(), self._TeXend(), self._TeXdoc()))
+{5}""".format(self._preamble(), self._TeXconfig(), self._TeXstart(), self._TeXbody(), self._TeXend(), self._TeXdoc())
 
-        tex_file = codecs.open(out, encoding='utf8', mode='w')
+        tex_file = open(out, mode='w')
         tex_file.write(text)
         tex_file.close()
 
@@ -53,7 +51,7 @@ die {1}{2}""".format(self.address, config.conference_name, config.conference_inf
         return r"""\include{reso}"""
 
     def _TeXend(self):
-        return r"""\closing{{{0},}}
+        return r"""\closing{{{0}}}
 
 \newpage
 \thispagestyle{{empty}}

@@ -32,7 +32,6 @@ class BundestagParser(NameParser):
                 nametokens[2] = nametokens[2][:tag_end]
                 for index, token in enumerate(nametokens):
                     token = token.lstrip()
-                    token = token.encode().decode()
                     if index == 0:
                         nachname = token
                     elif index == 1:

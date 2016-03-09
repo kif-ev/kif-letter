@@ -1,8 +1,5 @@
 
 
-from unidecode import unidecode
-
-import config
 from genderdetect import genderDetector
 
 
