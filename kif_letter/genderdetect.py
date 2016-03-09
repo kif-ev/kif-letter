@@ -1,6 +1,6 @@
 
-#from SexMachine.sexmachine import detector
-from gender_detector.gender_detector import GenderDetector
+
+import gender_detector.gender_detector as gd
 
 
-genderDetector = GenderDetector('us')
+genderDetector = gd.GenderDetector('us')
