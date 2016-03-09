@@ -36,9 +36,9 @@ class TeXWriter:
 \setkomavar{{date}}{{{3}}}
 \setkomavar{{place}}{{{4}}}
 \setkomavar{{signature}}{{{5}}}
-\setkomavar{{location}}{{\hspace{{-1cm}}\includegraphics[scale=0.42]{{{6}}}}}
+\setkomavar{{location}}{{\hspace{{-2cm}}\\~\\~\\\includegraphics[scale={6}]{{{7}}}}}
 
-\urldef{{\resourl}}\url{{{7}}}""".format(config.conference_name, config.fromaddress, config.backaddress, config.date, config.place, config.signature, config.logoname, config.resourl)
+\urldef{{\resourl}}\url{{{7}}}""".format(config.conference_name, config.fromaddress, config.backaddress, config.date, config.place, config.signature, config.scalefactor, config.logoname, config.resourl)
 
     def _TeXstart(self):
         return r"""\newcommand{{\letterfor}}[4]{{\begin{{letter}}{{{{\ifx#4mHerrn\else Frau\fi}}\relax\\#1#2 #3\\{0}}}
@@ -48,10 +48,10 @@ class TeXWriter:
 die {1}{2}""".format(self.address, config.conference_name, config.conference_info)
 
     def _TeXbody(self):
-        return r"""\include{reso}"""
+        return r"""\input{reso}"""
 
     def _TeXend(self):
-        return r"""\closing{{{0}}}
+        return r"""\\~\\\closing{{{0}}}
 
 \newpage
 \thispagestyle{{empty}}
@@ -69,4 +69,8 @@ die {1}{2}""".format(self.address, config.conference_name, config.conference_inf
 """.format(name.vorname, name.nachname, name.gender)
             docpart += nameTeX
 
+        docpart += r"""
+\end{document}
+
+"""
         return docpart
