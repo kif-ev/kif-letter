@@ -1,5 +1,7 @@
 
-from urllib import request
+import urllib
+
+from name import Name
 
 
 class NameParser:
@@ -7,11 +9,12 @@ class NameParser:
         self.address = address
         self.url = url
         if url != '':
-            response = request.urlopen(self.url)
-            self.pageContent = str(response.read())
+            response = urllib.urlopen(self.url).read()
+            self.pageContent = response
         else:
             self.pageContent = ''
         self.namelist = []
+        self.unknown_gender = []
 
     @classmethod
     def create_nonfunctional(self):
@@ -25,6 +28,13 @@ class NameParser:
 
     def add_name(self, name):
         self.namelist.append(name)
+
+    def _make_name(self, vorname, nachname, partei):
+        name = Name(vorname, nachname, partei)
+        self.namelist.append(name)
+        print('Added %s' % name.printout())
+        if name.gender == '':
+            self.unknown_gender.append(name.vorname_raw)
 
 
 class ParserException(Exception):

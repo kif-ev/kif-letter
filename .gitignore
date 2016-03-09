@@ -1,3 +1,13 @@
 /.project
 /.idea
 __pycache__
+*.pyc
+*.tex
+*.log
+*.aux
+*.pdf
+*.png
+*.svg
+*.htm
+*.html
+*.php

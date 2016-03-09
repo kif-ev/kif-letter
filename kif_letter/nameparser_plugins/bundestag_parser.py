@@ -1,6 +1,5 @@
 
 from nameparser import *
-from name import Name
 
 
 class BundestagParser(NameParser):
@@ -14,12 +13,12 @@ class BundestagParser(NameParser):
             self.pageContent = self.pageContent[start:end]
 
     def __init__(self):
-        NameParser.__init__(self, "Platz der Republik 1\n11011 Berlin", "https://www.bundestag.de/bundestag/abgeordnete18/alphabet")
+        NameParser.__init__(self, "Platz der Republik 1\n11011 Berlin", """https://www.bundestag.de/bundestag/abgeordnete18/alphabet""")
         self._shorten_page_content()
         self._make_name_list()
 
     def _make_name_list(self):
-        lines = self.pageContent.split('\\n', self.pageContent.count('\\n'))
+        lines = self.pageContent.split('\n', self.pageContent.count('\n'))
 
         for line_index, l in enumerate(lines):
             if l == '                        <div class="linkIntern">':
@@ -38,7 +37,5 @@ class BundestagParser(NameParser):
                         vorname = token
                     elif index == 2:
                         partei = token
-                name = Name(vorname, nachname, partei)
-                self.namelist.append(name)
-                print('Added %s' % name.printout())
 
+                self._make_name(vorname, nachname, partei)
