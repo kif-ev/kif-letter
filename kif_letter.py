@@ -49,11 +49,16 @@ def main():
 
     if out != '':
         tex = TeXWriter(out, address, namelist)
+        print("\nWrote TeX letter to %s\n" % out)
     else:
-        print("Cannot write TeX files")
+        print("\nCannot write TeX files\n")
         os.abort()
 
-
+    if len(parser.unknown_gender ) > 0:
+        print("Could not detect a gender for following names:")
+        for name in parser.unknown_gender:
+            print("%s" % name)
+        print("Please train an re-submit the dictionary at 'kif_letter/gender_detector/data/usprocessed.csv'")
 
 
 if __name__ == "__main__":

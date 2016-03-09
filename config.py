@@ -11,7 +11,7 @@ backaddress = r"""{0}, {1}""".format(conference_name, fromaddress)
 date = "15. November 2014"
 place = "Bonn"
 signature = "die Teilnehmer und Teilnehmerinnen der {0}".format(conference_name)
-logoname = "465px-Kif_logo_435"
+logoname = "Kif_logo_435.png"
 resourl = """https://kif.fsinf.de/wiki/KIF435:Resolutionen/Wissenschaftszeitvertragsgesetz"""
 closing = "Hochachtungsvoll"
 

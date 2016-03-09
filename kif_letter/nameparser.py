@@ -1,6 +1,7 @@
 
 import urllib
-import codecs
+
+from name import Name
 
 
 class NameParser:
@@ -13,6 +14,7 @@ class NameParser:
         else:
             self.pageContent = ''
         self.namelist = []
+        self.unknown_gender = []
 
     @classmethod
     def create_nonfunctional(self):
@@ -26,6 +28,13 @@ class NameParser:
 
     def add_name(self, name):
         self.namelist.append(name)
+
+    def _make_name(self, vorname, nachname, partei):
+        name = Name(vorname, nachname, partei)
+        self.namelist.append(name)
+        print('Added %s' % name.printout())
+        if name.gender == '':
+            self.unknown_gender.append(name.vorname_raw)
 
 
 class ParserException(Exception):

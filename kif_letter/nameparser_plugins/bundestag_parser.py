@@ -1,6 +1,5 @@
 
 from nameparser import *
-from name import Name
 
 
 class BundestagParser(NameParser):
@@ -38,7 +37,5 @@ class BundestagParser(NameParser):
                         vorname = token
                     elif index == 2:
                         partei = token
-                name = Name(vorname, nachname, partei)
-                self.namelist.append(name)
-                print('Added %s' % name.printout())
 
+                self._make_name(vorname, nachname, partei)
