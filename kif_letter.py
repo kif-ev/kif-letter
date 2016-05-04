@@ -5,7 +5,7 @@ import sys
 import os
 
 from kif_letter.nameparser import NameParser as NP
-import nameparser_plugins
+import kif_letter.nameparser_plugins
 from kif_letter.texwriter import TeXWriter
 
 
@@ -37,7 +37,7 @@ def main():
     if parsername != '':
         parser = NP.create_nonfunctional()
         if parsername == 'bundestag':
-             parser = nameparser_plugins.BundestagParser()
+             parser = kif_letter.nameparser_plugins.BundestagParser()
         else:
             print("Parser '%s' does not exist.")
             os.abort()

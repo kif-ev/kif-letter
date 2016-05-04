@@ -1,7 +1,7 @@
 
 import urllib
 
-from name import Name
+from .name import Name
 
 
 class NameParser:
@@ -9,8 +9,8 @@ class NameParser:
         self.address = address
         self.url = url
         if url != '':
-            response = urllib.urlopen(self.url).read()
-            self.pageContent = response
+            response = urllib.request.urlopen(self.url).read()
+            self.pageContent = response.decode()
         else:
             self.pageContent = ''
         self.namelist = []

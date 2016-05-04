@@ -1,6 +1,6 @@
 
 
-from genderdetect import genderDetector
+from .genderdetect import genderDetector
 
 
 class Name:

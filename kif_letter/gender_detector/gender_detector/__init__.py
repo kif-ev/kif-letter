@@ -1,2 +1,2 @@
-from gender_detector import *
+from .gender_detector import *
 

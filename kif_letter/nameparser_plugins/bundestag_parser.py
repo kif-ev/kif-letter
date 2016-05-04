@@ -1,5 +1,5 @@
 
-from nameparser import *
+from ..nameparser import *
 
 
 class BundestagParser(NameParser):
