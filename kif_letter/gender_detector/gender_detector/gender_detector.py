@@ -27,8 +27,9 @@ class GenderDetector:
             csvfile.seek(initial_position)
             reader = csv.reader(csvfile)
             for row in reader:
-                if row[0] == name:
-                    return self._guess(row)
+                if len(row) > 0:
+                    if row[0] == name:
+                        return self._guess(row)
             return self.unknown_value
 
     def _guess(self, row):
