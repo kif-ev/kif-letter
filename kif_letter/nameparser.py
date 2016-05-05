@@ -1,5 +1,5 @@
 
-import urllib
+from urllib import request as req
 
 from .name import Name
 
@@ -9,7 +9,7 @@ class NameParser:
         self.address = address
         self.url = url
         if url != '':
-            response = urllib.request.urlopen(self.url).read()
+            response = req.urlopen(self.url).read()
             self.pageContent = response.decode()
         else:
             self.pageContent = ''
