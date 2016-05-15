@@ -6,7 +6,6 @@ __pycache__
 *.log
 *.aux
 *.pdf
-*.png
 *.svg
 *.htm
 *.html
