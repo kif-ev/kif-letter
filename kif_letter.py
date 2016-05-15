@@ -5,7 +5,7 @@ import sys
 import os
 
 from kif_letter.nameparser import NameParser as NP
-import kif_letter.nameparser_plugins
+import kif_letter.nameparser_plugins as NPP
 from kif_letter.texwriter import TeXWriter
 
 
@@ -14,7 +14,8 @@ def main():
     argc = len(sys.argv)
     out = ''
     parsername = ''
-    if argc == 5:
+    url = ''
+    if argc >= 5:
         for arg_indx, arg in enumerate(sys.argv):
             if arg_indx == 0:  # Skip script name
                 continue
@@ -26,21 +27,38 @@ def main():
                out = sys.argv[arg_indx+1]
             elif arg == '-p' or arg == '--parser':
                 parsername = sys.argv[arg_indx+1]
+                if parsername == 'wikitable' and argc < 6:
+                    print("You have to provide a url to a table on de.wikipedia.org")
+                    exit(1)
+            elif arg_indx == 5:
+                url = sys.argv[arg_indx]
+                if url.find("http") == -1:
+                    print "'{}' is no valid url".format(utl)
 
     else:
-        print("Usage: kif_letter.py -o OUTFILE -p PARSERNAME")
-        os.abort()
+        print("Usage: kif_letter.py -o OUTFILE -p PARSERNAME [URL]")
+        exit(0)
 
+    if len(out) == 0:
+        print("\nCannot write TeX files\n")
+        exit(1)
 
     namelist = []
     address = ''
     if parsername != '':
         parser = NP.create_nonfunctional()
         if parsername == 'bundestag':
-             parser = kif_letter.nameparser_plugins.BundestagParser()
+            parser = NPP.WikiTableParser("Platz der Republik 1\n11011 Berlin", \
+                                         NPP.WikiTableParser.WIKI_PAGE + "Liste_der_Mitglieder_des_Deutschen_Bundestages_(18._Wahlperiode)")
+            #parser = NPP.BundestagParser()
+        elif parsername == 'wikiparser':
+            if len(url) == 0 or url.find("de.wikipedia.org") == -1:
+                print "'{}' is no valid wikipedia url...".format(url)
+                exit(1)
+            parser = NPP.WikiTableParser(config.toadress, url)
         else:
             print("Parser '%s' does not exist.")
-            os.abort()
+            exit(1)
 
         namelist = parser.get_names()
         address = parser.get_address()
@@ -50,9 +68,6 @@ def main():
     if out != '':
         tex = TeXWriter(out, address, namelist)
         print("\nWrote TeX letter to %s\n" % out)
-    else:
-        print("\nCannot write TeX files\n")
-        os.abort()
 
     if len(parser.unknown_gender ) > 0:
         print("Could not detect a gender for following names:")
