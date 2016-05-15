@@ -1,5 +1,5 @@
 
-from urllib import request as req
+import urllib
 
 from .name import Name
 
@@ -9,8 +9,8 @@ class NameParser:
         self.address = address
         self.url = url
         if url != '':
-            response = req.urlopen(self.url).read()
-            self.pageContent = response.decode()
+            response = urllib.urlopen(self.url).read()
+            self.pageContent = response
         else:
             self.pageContent = ''
         self.namelist = []
@@ -29,8 +29,8 @@ class NameParser:
     def add_name(self, name):
         self.namelist.append(name)
 
-    def _make_name(self, vorname, nachname, partei):
-        name = Name(vorname, nachname, partei)
+    def _make_name(self, vorname, nachname, partei, gender=''):
+        name = Name(vorname, nachname, partei, gender)
         self.namelist.append(name)
         print('Added %s' % name.printout())
         if name.gender == '':
